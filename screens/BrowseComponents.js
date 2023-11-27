@@ -10,8 +10,10 @@ const BrowseComponents = ({ navigation, route }) => {
       navigation.navigate("ComponentDetails", {
         data: itemData.item,
         componentId: itemData.item.id,
+        name: itemData.item.categoryName,
       });
     };
+    console.log(itemData.item.id);
 
     return (
       <ComponentItem

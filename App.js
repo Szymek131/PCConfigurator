@@ -21,29 +21,39 @@ const BottomTabsScreens = () => {
         headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
         headerTintColor: GlobalStyles.colors.secondary700,
         tabBarStyle: { backgroundColor: GlobalStyles.colors.primary500 },
-        tabBarActiveTintColor: GlobalStyles.colors.secondary700,
+        tabBarActiveTintColor: GlobalStyles.colors.dark900,
       }}
     >
       <BottomTabs.Screen
         name="ComponentsCategories"
         component={ComponentsCategories}
         options={{
-          title: "Components categories",
-          tabBarLabel: "Components categories",
+          title: "Kategorie komponentów",
+          tabBarLabel: "Komponenty",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="search" size={size} color={color} />
           ),
+          headerTitleStyle: {
+            fontSize: 22,
+            fontWeight: "bold",
+          },
+          headerTintColor: GlobalStyles.colors.dark900,
         }}
       />
       <BottomTabs.Screen
         name="Configurator"
         component={Configurator}
         options={{
-          title: "Configure",
-          tabBarLabel: "build",
+          title: "Konfigurator",
+          tabBarLabel: "Konfigurator",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="build" size={size} color={color} />
           ),
+          headerTitleStyle: {
+            fontSize: 22,
+            fontWeight: "bold",
+          },
+          headerTintColor: GlobalStyles.colors.dark900,
         }}
       />
     </BottomTabs.Navigator>
@@ -71,15 +81,25 @@ export default function App() {
           <Stack.Screen
             name="BrowseComponents"
             component={BrowseComponents}
-            options={{
-              title: "",
-            }}
+            options={({ route }) => ({
+              title: route.params.name,
+              headerTitleStyle: {
+                fontSize: 22,
+                fontWeight: "bold",
+              },
+              headerTintColor: GlobalStyles.colors.dark900,
+            })}
           />
           <Stack.Screen
             name="ComponentDetails"
             component={ComponentDetails}
             options={{
               title: "",
+              headerBackTitleStyle: {
+                fontSize: 22,
+                fontWeight: "bold",
+              },
+              headerTintColor: GlobalStyles.colors.dark900,
             }}
           />
         </Stack.Navigator>

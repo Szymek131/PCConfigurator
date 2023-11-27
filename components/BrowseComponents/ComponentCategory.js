@@ -3,7 +3,7 @@ import { GlobalStyles } from "../../constants/styles";
 
 const ComponentCategory = ({ label, imageSource, onPress }) => {
   return (
-    <View style={styles.rooContainer}>
+    <View style={styles.rootContainer}>
       <Pressable
         onPress={onPress}
         style={({ pressed }) => pressed && [styles.pressed]}
@@ -24,14 +24,14 @@ const ComponentCategory = ({ label, imageSource, onPress }) => {
 export default ComponentCategory;
 
 const styles = StyleSheet.create({
-  rooContainer: {
+  rootContainer: {
     flex: 1,
     elevation: 4,
     shadowColor: "black",
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
-    backgroundColor: GlobalStyles.colors.primary700,
+    backgroundColor: GlobalStyles.colors.light300,
     margin: 16,
     borderRadius: 24,
   },
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   text: {
     flex: 2,
     fontSize: 24,
-    color: GlobalStyles.colors.secondary700,
+    color: GlobalStyles.colors.dark700,
     textAlign: "center",
     fontWeight: "bold",
   },

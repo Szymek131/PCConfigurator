@@ -9,6 +9,7 @@ const ComponentsCategories = ({ navigation }) => {
       navigation.navigate("BrowseComponents", {
         categoryId: itemData.item.id,
         data: itemData.item.data,
+        name: itemData.item.categoryName,
       });
     };
 

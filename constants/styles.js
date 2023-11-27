@@ -6,7 +6,8 @@ export const GlobalStyles = {
     secondary500: "#3A7D44",
     secondary700: "#254D32",
     triary700: "#181D27",
-    dark700: "#3F4B3B",
+    dark500: "#3F4B3B",
     light300: "#DFE1CC",
+    dark900: "black",
   },
 };

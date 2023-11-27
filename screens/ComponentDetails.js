@@ -7,11 +7,30 @@ import {
   ScrollView,
 } from "react-native";
 import { GlobalStyles } from "../constants/styles";
-const ComponentDetails = ({ route }) => {
+import { useState } from "react";
+import IconButton from "../components/UI/IconButton";
+import Button from "../components/UI/Button";
+
+const ComponentDetails = ({ navigation, route }) => {
   const data = route.params.data;
   const id = route.params.componentId;
-  console.log(id);
-  console.log(data);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [expandedIcon, setExpandedIcon] = useState("chevron-up");
+
+  const setExpandedHandler = () => {
+    if (isExpanded) {
+      setIsExpanded(false);
+      setExpandedIcon("chevron-up");
+    } else {
+      setIsExpanded(true);
+      setExpandedIcon("chevron-down");
+    }
+  };
+
+  const setGoBackHandler = () => {
+    navigation.goBack();
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -25,40 +44,55 @@ const ComponentDetails = ({ route }) => {
           </View>
           <Text style={styles.componentName}>{data.name}</Text>
           <View style={styles.textContainer}>
-            <Text style={styles.label}>Parametry</Text>
-            <View style={styles.parametersContainer}>
-              {/* <View style={styles.parametrContainer}>
-                <FlatList
-                  data={data.parameters}
-                  scrollEnabled={false}
-                  renderItem={({ item }) => (
-                    <View style={styles.parametrItemContainer}>
-                      <Text style={styles.parametrLabelText}>{item.label}</Text>
-                    </View>
-                  )}
-                />
-              </View> */}
-              <View style={styles.parametrContainer}>
-                <FlatList
-                  data={data.parameters}
-                  scrollEnabled={false}
-                  renderItem={({ item }) => (
-                    <View style={styles.parametrItemContainer}>
-                      <View style={styles.parametrItemInnerContainer}>
-                        <Text style={styles.parametrLabelText}>
-                          {item.label}
-                        </Text>
-                      </View>
-                      <View style={styles.parametrItemInnerContainer}>
-                        <Text style={styles.parametrValueText}>
-                          {item.value}
-                        </Text>
-                      </View>
-                    </View>
-                  )}
+            <View style={styles.labelContainer}>
+              <Text style={styles.label}>Parametry</Text>
+              <View style={styles.expandedIconContainer}>
+                <IconButton
+                  onPress={setExpandedHandler}
+                  icon={expandedIcon}
+                  color={GlobalStyles.colors.dark900}
+                  size={36}
                 />
               </View>
             </View>
+            <View style={styles.parametersContainer}>
+              <View style={styles.parametrContainer}>
+                {isExpanded && (
+                  <FlatList
+                    data={data.parameters}
+                    scrollEnabled={false}
+                    renderItem={({ item }) => (
+                      <View style={styles.parametrItemContainer}>
+                        <View style={styles.parametrItemInnerContainer}>
+                          <Text style={styles.parametrLabelText}>
+                            {item.label}
+                          </Text>
+                        </View>
+                        <View style={styles.parametrItemInnerContainer}>
+                          <Text style={styles.parametrValueText}>
+                            {item.value}
+                          </Text>
+                        </View>
+                      </View>
+                    )}
+                    keyExtractor={(item) => item.label}
+                  />
+                )}
+              </View>
+            </View>
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button
+              label="Wybierz"
+              buttonColor={GlobalStyles.colors.primary500}
+              buttonTextColor="black"
+            />
+            <Button
+              label="Wróć"
+              buttonColor={GlobalStyles.colors.triary700}
+              buttonTextColor="white"
+              onPress={setGoBackHandler}
+            />
           </View>
         </View>
       </ScrollView>
@@ -85,8 +119,16 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
   },
+  expandedIconContainer: {
+    marginBottom: 8,
+  },
+  labelContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
   headerContainer: {
-    justifyContent: "center",
     alignItems: "center",
     flex: 1,
   },
@@ -94,9 +136,16 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flex: 1,
     alignItems: "center",
-    backgroundColor: GlobalStyles.colors.primary700,
+    backgroundColor: GlobalStyles.colors.light300,
     paddingBottom: 40,
+    marginBottom: 24,
     borderRadius: 64,
+    maxWidth: 350,
+    shadowColor: "black",
+    shadowOpacity: 0.25,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 8,
+    backgroundColor: GlobalStyles.colors.light300,
   },
   componentName: {
     fontSize: 24,
@@ -111,6 +160,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 12,
     marginBottom: 24,
+    marginRight: 12,
   },
   parametersContainer: {
     flex: 1,
@@ -136,14 +186,19 @@ const styles = StyleSheet.create({
     borderWidth: 0.2,
     minHeight: 60,
     padding: 6,
+    marginBottom: 4,
     justifyContent: "center",
     backgroundColor: GlobalStyles.colors.primary500,
     flexDirection: "row",
     justifyContent: "space-between",
-    width: 350,
+    width: 300,
   },
   parametrItemInnerContainer: {
     flex: 1,
     justifyContent: "center",
+  },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: "row",
   },
 });
