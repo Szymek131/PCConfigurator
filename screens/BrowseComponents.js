@@ -4,6 +4,8 @@ import ComponentItem from "../components/BrowseComponents/ComponentItem";
 
 const BrowseComponents = ({ navigation, route }) => {
   const data = route.params.data;
+  const isConfigurating = route.params.isConfigurating;
+  const componentNavigation = route.params.componentNavigation;
 
   const renderComponentItem = (itemData) => {
     const pressHandler = () => {
@@ -11,6 +13,8 @@ const BrowseComponents = ({ navigation, route }) => {
         data: itemData.item,
         componentId: itemData.item.id,
         name: itemData.item.categoryName,
+        isConfigurating: isConfigurating,
+        componentNavigation: componentNavigation,
       });
     };
     console.log(itemData.item.id);

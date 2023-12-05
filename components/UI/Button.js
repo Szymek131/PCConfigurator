@@ -1,5 +1,4 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { GlobalStyles } from "../../constants/styles";
 
 const Button = ({ onPress, label, buttonColor, buttonTextColor }) => {
   return (

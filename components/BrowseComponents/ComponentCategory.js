@@ -1,7 +1,21 @@
-import { View, Pressable, Text, StyleSheet, Image } from "react-native";
+import {
+  View,
+  Pressable,
+  Text,
+  StyleSheet,
+  Image,
+  ActivityIndicator,
+} from "react-native";
 import { GlobalStyles } from "../../constants/styles";
+import { useState } from "react";
 
 const ComponentCategory = ({ label, imageSource, onPress }) => {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setImagesLoaded(true);
+  };
+
   return (
     <View style={styles.rootContainer}>
       <Pressable
@@ -11,7 +25,17 @@ const ComponentCategory = ({ label, imageSource, onPress }) => {
         <View style={styles.container}>
           <View style={styles.contentContainer}>
             <View style={styles.imageContainer}>
-              <Image style={styles.image} source={imageSource} />
+              {imagesLoaded ? null : (
+                <ActivityIndicator
+                  style={styles.activityIndicator}
+                  size="large"
+                />
+              )}
+              <Image
+                style={styles.image}
+                source={imageSource}
+                onLoad={handleImageLoad}
+              />
             </View>
             <Text style={styles.text}>{label}</Text>
           </View>
@@ -57,6 +81,9 @@ const styles = StyleSheet.create({
     maxHeight: 100,
     maxWidth: 100,
   },
+  activityIndicator: {
+    marginTop: 30,
+  },
   contentContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -66,7 +93,7 @@ const styles = StyleSheet.create({
   text: {
     flex: 2,
     fontSize: 24,
-    color: GlobalStyles.colors.dark700,
+    color: GlobalStyles.colors.dark900,
     textAlign: "center",
     fontWeight: "bold",
   },

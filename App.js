@@ -1,15 +1,23 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet } from "react-native";
 import { GlobalStyles } from "./constants/styles";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import ComponentsCategories from "./screens/ComponentsCategories";
 import BrowseComponents from "./screens/BrowseComponents";
-import Configurator from "./screens/Configurator";
 import ComponentDetails from "./screens/ComponentDetails";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+import Configurator from "./screens/Configurator";
+import MotherboardStep from "./screens/Configurator/MotherboardStep";
+import CPUStep from "./screens/Configurator/CPUStep";
+import GPUStep from "./screens/Configurator/GPUStep";
+import RAMStep from "./screens/Configurator/RAMStep";
+import MemoryStep from "./screens/Configurator/MemoryStep";
+import CaseStep from "./screens/Configurator/CaseStep";
+import PowerSupplyStep from "./screens/Configurator/PowerSupplyStep";
+import CoolerStep from "./screens/Configurator/CoolerStep";
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -102,17 +110,104 @@ export default function App() {
               headerTintColor: GlobalStyles.colors.dark900,
             }}
           />
+          <Stack.Screen
+            name="MotherboardStep"
+            component={MotherboardStep}
+            options={{
+              title: "MotherboardStep",
+              headerBackTitleStyle: {
+                fontSize: 22,
+                fontWeight: "bold",
+              },
+              headerTintColor: GlobalStyles.colors.dark900,
+            }}
+          />
+          <Stack.Screen
+            name="CPUStep"
+            component={CPUStep}
+            options={{
+              title: "CPUStep",
+              headerBackTitleStyle: {
+                fontSize: 22,
+                fontWeight: "bold",
+              },
+              headerTintColor: GlobalStyles.colors.dark900,
+            }}
+          />
+          <Stack.Screen
+            name="GPUStep"
+            component={GPUStep}
+            options={{
+              title: "GPUStep",
+              headerBackTitleStyle: {
+                fontSize: 22,
+                fontWeight: "bold",
+              },
+              headerTintColor: GlobalStyles.colors.dark900,
+            }}
+          />
+          <Stack.Screen
+            name="RAMStep"
+            component={RAMStep}
+            options={{
+              title: "RAMStep",
+              headerBackTitleStyle: {
+                fontSize: 22,
+                fontWeight: "bold",
+              },
+              headerTintColor: GlobalStyles.colors.dark900,
+            }}
+          />
+          <Stack.Screen
+            name="MemoryStep"
+            component={MemoryStep}
+            options={{
+              title: "MemoryStep",
+              headerBackTitleStyle: {
+                fontSize: 22,
+                fontWeight: "bold",
+              },
+              headerTintColor: GlobalStyles.colors.dark900,
+            }}
+          />
+          <Stack.Screen
+            name="CoolerStep"
+            component={CoolerStep}
+            options={{
+              title: "CoolerStep",
+              headerBackTitleStyle: {
+                fontSize: 22,
+                fontWeight: "bold",
+              },
+              headerTintColor: GlobalStyles.colors.dark900,
+            }}
+          />
+          <Stack.Screen
+            name="PowerSupplyStep"
+            component={PowerSupplyStep}
+            options={{
+              title: "PowerSupplyStep",
+              headerBackTitleStyle: {
+                fontSize: 22,
+                fontWeight: "bold",
+              },
+              headerTintColor: GlobalStyles.colors.dark900,
+            }}
+          />
+          <Stack.Screen
+            name="CaseStep"
+            component={CaseStep}
+            options={{
+              title: "CaseStep",
+              headerBackTitleStyle: {
+                fontSize: 22,
+                fontWeight: "bold",
+              },
+              headerTintColor: GlobalStyles.colors.dark900,
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: GlobalStyles.colors.primary500,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

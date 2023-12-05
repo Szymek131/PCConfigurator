@@ -1,7 +1,21 @@
-import { View, Text, Pressable, Image, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Pressable,
+  Image,
+  StyleSheet,
+  ActivityIndicator,
+} from "react-native";
 import { GlobalStyles } from "../../constants/styles";
+import { useState } from "react";
 
 const ComponentItem = ({ label, imageSource, onPress }) => {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setImagesLoaded(true);
+  };
+
   return (
     <View style={styles.rootContainer}>
       <Pressable
@@ -11,7 +25,17 @@ const ComponentItem = ({ label, imageSource, onPress }) => {
         <View style={styles.container}>
           <View style={styles.contentContainer}>
             <View style={styles.imageContainer}>
-              <Image style={styles.image} source={imageSource} />
+              {imagesLoaded ? null : (
+                <ActivityIndicator
+                  style={styles.activityIndicator}
+                  size="large"
+                />
+              )}
+              <Image
+                style={styles.image}
+                source={imageSource}
+                onLoad={handleImageLoad}
+              />
             </View>
             <Text style={styles.text}>{label}</Text>
           </View>
@@ -34,6 +58,9 @@ const styles = StyleSheet.create({
     backgroundColor: GlobalStyles.colors.light300,
     margin: 8,
     borderRadius: 12,
+  },
+  activityIndicator: {
+    marginTop: 30,
   },
   container: {
     flex: 1,

@@ -1,7 +1,21 @@
-import { View, Pressable, StyleSheet, Image, Text } from "react-native";
+import {
+  View,
+  Pressable,
+  StyleSheet,
+  Image,
+  Text,
+  ActivityIndicator,
+} from "react-native";
 import { GlobalStyles } from "../../constants/styles";
+import { useState } from "react";
 
 const CategoryGridTile = ({ label, imageSource, onPress }) => {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setImagesLoaded(true);
+  };
+
   return (
     <View style={styles.gridItem}>
       <Pressable
@@ -15,7 +29,17 @@ const CategoryGridTile = ({ label, imageSource, onPress }) => {
         <View style={styles.contentContainer}>
           <View style={styles.imageContainer}>
             <View style={styles.innerImageContainer}>
-              <Image source={imageSource} style={styles.image} />
+              {imagesLoaded ? null : (
+                <ActivityIndicator
+                  style={styles.activityIndicator}
+                  size="large"
+                />
+              )}
+              <Image
+                source={imageSource}
+                style={styles.image}
+                onLoad={handleImageLoad}
+              />
             </View>
           </View>
           <View style={styles.innerContainer}>
@@ -33,8 +57,7 @@ const styles = StyleSheet.create({
   gridItem: {
     flex: 1,
     margin: 16,
-    height: 200,
-    borderRadius: 8,
+    borderRadius: 16,
     elevation: 4,
     backgroundColor: "white",
     shadowColor: "black",
@@ -55,6 +78,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 8,
     backgroundColor: GlobalStyles.colors.primary500,
+    paddingHorizontal: 10,
   },
   contentContainer: {
     flex: 1,
@@ -68,16 +92,21 @@ const styles = StyleSheet.create({
   innerImageContainer: {
     flex: 1,
     borderRadius: 24,
-    maxHeight: 130,
-    maxWidth: 130,
+    maxHeight: 300,
+    maxWidth: 300,
     overflow: "hidden",
   },
   image: {
-    maxHeight: 130,
-    maxWidth: 130,
+    maxHeight: 300,
+    maxWidth: 300,
   },
   label: {
     fontWeight: "bold",
     fontSize: 18,
+    textAlign: "center",
+  },
+  activityIndicator: {
+    flex: 1,
+    marginTop: 100,
   },
 });

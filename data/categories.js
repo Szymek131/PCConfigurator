@@ -34,7 +34,6 @@ export const CATEGORIES = [
     name: "Pamięć ram",
     categoryName: "Pamięć ram",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/categories/Ram.png"),
-    link: "BrowseRams",
     data: RAMS,
   },
   {

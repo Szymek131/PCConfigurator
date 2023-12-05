@@ -5,6 +5,7 @@ import {
   StyleSheet,
   FlatList,
   ScrollView,
+  ActivityIndicator,
 } from "react-native";
 import { GlobalStyles } from "../constants/styles";
 import { useState } from "react";
@@ -13,9 +14,28 @@ import Button from "../components/UI/Button";
 
 const ComponentDetails = ({ navigation, route }) => {
   const data = route.params.data;
-  const id = route.params.componentId;
+  const isConfigurating = route.params.isConfigurating;
+  const componentNavigation = route.params.componentNavigation;
+  console.log(componentNavigation);
+
   const [isExpanded, setIsExpanded] = useState(false);
   const [expandedIcon, setExpandedIcon] = useState("chevron-up");
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setImagesLoaded(true);
+  };
+
+  const handleChoose = () => {
+    console.log(data.imgSource);
+    console.log(data);
+    navigation.navigate(componentNavigation, {
+      image: data.imgSource,
+      data: data,
+      isChoosed: true,
+      name: data.name,
+    });
+  };
 
   const setExpandedHandler = () => {
     if (isExpanded) {
@@ -36,10 +56,18 @@ const ComponentDetails = ({ navigation, route }) => {
       <ScrollView>
         <View style={styles.headerContainer}>
           <View style={styles.imageContainer}>
+            {imagesLoaded ? null : (
+              <ActivityIndicator
+                style={styles.activityIndicator}
+                size="large"
+                color="black"
+              />
+            )}
             <Image
               source={data.imgSource}
               style={styles.image}
               resizeMode="contain"
+              onLoad={handleImageLoad}
             />
           </View>
           <Text style={styles.componentName}>{data.name}</Text>
@@ -82,11 +110,14 @@ const ComponentDetails = ({ navigation, route }) => {
             </View>
           </View>
           <View style={styles.buttonContainer}>
-            <Button
-              label="Wybierz"
-              buttonColor={GlobalStyles.colors.primary500}
-              buttonTextColor="black"
-            />
+            {isConfigurating && (
+              <Button
+                label="Wybierz"
+                buttonColor={GlobalStyles.colors.primary500}
+                buttonTextColor="black"
+                onPress={handleChoose}
+              />
+            )}
             <Button
               label="Wróć"
               buttonColor={GlobalStyles.colors.triary700}
@@ -161,6 +192,9 @@ const styles = StyleSheet.create({
     marginTop: 12,
     marginBottom: 24,
     marginRight: 12,
+  },
+  activityIndicator: {
+    marginTop: "50%",
   },
   parametersContainer: {
     flex: 1,
