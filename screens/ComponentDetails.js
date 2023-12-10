@@ -27,13 +27,12 @@ const ComponentDetails = ({ navigation, route }) => {
   };
 
   const handleChoose = () => {
-    console.log(data.imgSource);
-    console.log(data);
     navigation.navigate(componentNavigation, {
       image: data.imgSource,
       data: data,
       isChoosed: true,
       name: data.name,
+      compatibilities: data.compatibilities,
     });
   };
 
@@ -116,6 +115,7 @@ const ComponentDetails = ({ navigation, route }) => {
                 buttonColor={GlobalStyles.colors.primary500}
                 buttonTextColor="black"
                 onPress={handleChoose}
+                active={true}
               />
             )}
             <Button
@@ -123,6 +123,7 @@ const ComponentDetails = ({ navigation, route }) => {
               buttonColor={GlobalStyles.colors.triary700}
               buttonTextColor="white"
               onPress={setGoBackHandler}
+              active={true}
             />
           </View>
         </View>

@@ -1,10 +1,12 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
-const Button = ({ onPress, label, buttonColor, buttonTextColor }) => {
+const Button = ({ onPress, label, buttonColor, buttonTextColor, active }) => {
   return (
     <Pressable
-      onPress={onPress}
-      style={({ pressed }) => pressed && [styles.pressed]}
+      onPress={active ? onPress : () => {}}
+      style={
+        active ? ({ pressed }) => pressed && [styles.pressed] : styles.notActive
+      }
     >
       <View style={[styles.ButtonContainer, { backgroundColor: buttonColor }]}>
         <Text style={[styles.buttonText, { color: buttonTextColor }]}>
@@ -18,6 +20,9 @@ const Button = ({ onPress, label, buttonColor, buttonTextColor }) => {
 const styles = StyleSheet.create({
   pressed: {
     opacity: 0.5,
+  },
+  notActive: {
+    opacity: 0.4,
   },
   ButtonContainer: {
     flex: 1,

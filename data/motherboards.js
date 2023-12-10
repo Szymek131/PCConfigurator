@@ -3,6 +3,12 @@ export const MOTHERBOARDS = [
     id: 1,
     name: "Płyta główna ASUS TUF Gaming B450M-Pro II",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Motherboards/motherboard_1.jpg"),
+    compatibilities: {
+      CPU: ["Socket AM4"],
+      GPU: ["PCIe 3.0 x16"],
+      RAM: [],
+      Memory: [],
+    },
     parameters: [
       {
         label: "Obługiwane procesory",
@@ -59,6 +65,12 @@ export const MOTHERBOARDS = [
     id: 2,
     name: "Płyta główna MSI MAG B550 Tomahawk",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Motherboards/motherboard_2.jpg"),
+    compatibilities: {
+      CPU: ["Socket AM5"],
+      GPU: ["PCIe 2.0 x16"],
+      RAM: [],
+      Memory: [],
+    },
     parameters: [
       {
         label: "Obługiwane procesory",

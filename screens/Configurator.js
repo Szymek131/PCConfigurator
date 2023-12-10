@@ -21,6 +21,7 @@ const Configurator = ({ navigation }) => {
           buttonColor={GlobalStyles.colors.dark900}
           buttonTextColor="white"
           onPress={handleStartConfiguration}
+          active={true}
         />
       </View>
     </View>

@@ -3,6 +3,9 @@ export const CPUS = [
     id: 1,
     name: "Intel® Procesor stacjonarny Core™ i9-13900K",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/CPUs/cpu_1.jpg"),
+    compatibilities: {
+      CPU: "Socket AM5",
+    },
     parameters: [
       { label: "Rodzina procesorów", value: "Intel Core i9" },
       { label: "Seria procesora", value: "i9-13900K" },
@@ -26,6 +29,9 @@ export const CPUS = [
     id: 2,
     name: "AMD Ryzen 7 5700X",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/CPUs/cpu_2.jpg"),
+    compatibilities: {
+      CPU: "Socket AM4",
+    },
     parameters: [
       { label: "Rodzina procesorów", value: "AMD Ryzen™" },
       { label: "Seria procesora", value: "Ryzen™ 7 5700X" },
@@ -47,6 +53,9 @@ export const CPUS = [
     id: 3,
     name: "Intel Core i5-13600KF",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/CPUs/cpu_3.jpg"),
+    compatibilities: {
+      CPU: "Socket AM5",
+    },
     parameters: [
       { label: "Rodzina procesorów", value: "Intel Core i5" },
       { label: "Seria procesora", value: "i5-13600KF" },
@@ -69,6 +78,9 @@ export const CPUS = [
     id: 4,
     name: "AMD Ryzen 9 7950X",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/CPUs/cpu_4.jpg"),
+    compatibilities: {
+      CPU: "Socket AM5",
+    },
     parameters: [
       { label: "Rodzina procesorów", value: "AMD Ryzen™" },
       { label: "Seria procesora", value: "Ryzen™ 9 7950X" },
