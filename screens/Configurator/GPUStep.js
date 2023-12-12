@@ -8,15 +8,12 @@ const GPUStep = ({ navigation, route }) => {
   const isChoosed = route.params.isChoosed;
   const choosedName = route.params.name;
   const partData = route.params.data;
+  const GPUCompatibilities = route.params.compatibilities;
 
   const { compatibilities, updateCompatibilities, pcSet, updatePcSet } =
     useContext(configuratorContext);
 
-  console.log(
-    "current compatibilities GPU Step",
-    compatibilities.GPU,
-    GPUS[1].compatibilities.GPU
-  );
+  console.log("current compatibilities GPU Step", compatibilities);
   const [image, setImage] = useState(
     require("D:/PracaInz/PCConfigurator/assets/images/categories/KartaGraficzna.png")
   );
@@ -33,6 +30,21 @@ const GPUStep = ({ navigation, route }) => {
     }
   }, [choosedImage]);
 
+  const updateGPUCompatibilities = () => {
+    const updatedGPUCompatibilities = {
+      ...compatibilities,
+      GPU: {
+        ...compatibilities.GPU,
+        length: GPUCompatibilities.GPU.length,
+      },
+      PowerSupply: {
+        ...compatibilities.PowerSupply,
+        recommended: GPUCompatibilities.PowerSupply,
+      },
+    };
+    updateCompatibilities(updatedGPUCompatibilities);
+  };
+
   const updateSet = () => {
     const updatedSet = {
       ...pcSet,
@@ -45,21 +57,24 @@ const GPUStep = ({ navigation, route }) => {
   };
 
   const nextStepHandler = () => {
+    updateGPUCompatibilities();
+    updateSet();
     navigation.navigate("RAMStep", {
       isChoosed: false,
       image: "",
     });
-    updateSet();
   };
 
   const categoryItemHandler = () => {
     navigation.navigate("BrowseComponents", {
       categoryId: 2,
       data: GPUS.filter((gpu) => {
-        const gpuCompatibility = gpu.compatibilities?.GPU;
+        const gpuCompatibility = gpu.compatibilities?.GPU.input;
         return (
           gpuCompatibility &&
-          compatibilities.GPU.some((value) => gpuCompatibility.includes(value))
+          compatibilities.GPU.input.some((value) =>
+            gpuCompatibility.includes(value)
+          )
         );
       }),
       name: "Karty graficzne",

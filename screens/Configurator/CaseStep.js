@@ -43,7 +43,13 @@ const CaseStep = ({ navigation, route }) => {
   const categoryItemHandler = () => {
     navigation.navigate("BrowseComponents", {
       categoryId: 8,
-      data: CASES,
+      data: CASES.filter((cs) => {
+        return (
+          cs.compatibilities.motherboard.includes(
+            compatibilities.motherboard.format
+          ) && cs.compatibilities.GPULength >= compatibilities.GPU.lenght
+        );
+      }),
       name: "Obudowa",
       isConfigurating: true,
       componentNavigation: "CaseStep",
@@ -53,14 +59,14 @@ const CaseStep = ({ navigation, route }) => {
   const nextStepHandler = async () => {
     navigation.navigate("BrowseComponents", {
       data: pcSet.parts,
-      name: "pcSet 1",
+      name: "twój zestaw",
     });
   };
 
   return (
     <ConfiguratorStep
       image={image}
-      headerTitle="Zasilanie"
+      headerTitle="Obudowa"
       nextStepHandler={nextStepHandler}
       componentName={componentName}
       categoryItemHandler={categoryItemHandler}

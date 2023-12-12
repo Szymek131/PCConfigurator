@@ -23,8 +23,23 @@ const MotherboardStep = ({ navigation, route }) => {
   const updateMotherboardCompatibilities = () => {
     const updatedMotherboardCompatibilities = {
       ...compatibilities,
-      GPU: motherboardCompatibilities.GPU,
-      CPU: motherboardCompatibilities.CPU,
+      GPU: {
+        ...compatibilities.GPU,
+        input: motherboardCompatibilities.GPU,
+      },
+      CPU: {
+        ...compatibilities.CPU,
+        socket: motherboardCompatibilities.CPU.socket,
+      },
+      RAM: {
+        ...compatibilities.RAM,
+        type: motherboardCompatibilities.RAM.type,
+        slots: motherboardCompatibilities.RAM.slots,
+      },
+      motherboard: {
+        ...compatibilities.motherboard,
+        format: motherboardCompatibilities.motherboard.format,
+      },
     };
     updateCompatibilities(updatedMotherboardCompatibilities);
   };

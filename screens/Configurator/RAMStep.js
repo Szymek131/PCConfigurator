@@ -52,7 +52,12 @@ const RAMStep = ({ navigation, route }) => {
   const categoryItemHandler = () => {
     navigation.navigate("BrowseComponents", {
       categoryId: 4,
-      data: RAMS,
+      data: RAMS.filter((ram) => {
+        return (
+          compatibilities.RAM.slots >= ram.compatibilities.RAM.number &&
+          compatibilities.RAM.type === ram.compatibilities.RAM.type
+        );
+      }),
       name: "Pamięć ram",
       isConfigurating: true,
       componentNavigation: "RAMStep",

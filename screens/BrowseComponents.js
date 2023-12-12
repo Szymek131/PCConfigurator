@@ -17,7 +17,6 @@ const BrowseComponents = ({ navigation, route }) => {
         componentNavigation: componentNavigation,
       });
     };
-    console.log(itemData.item.id);
 
     return (
       <ComponentItem

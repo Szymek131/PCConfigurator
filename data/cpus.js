@@ -1,10 +1,12 @@
 export const CPUS = [
   {
     id: 1,
-    name: "Intel® Procesor stacjonarny Core™ i9-13900K",
+    name: "Intel® Core™ i9-13900K",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/CPUs/cpu_1.jpg"),
     compatibilities: {
-      CPU: "Socket AM5",
+      CPU: {
+        socket: "1700",
+      },
     },
     parameters: [
       { label: "Rodzina procesorów", value: "Intel Core i9" },
@@ -30,12 +32,18 @@ export const CPUS = [
     name: "AMD Ryzen 7 5700X",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/CPUs/cpu_2.jpg"),
     compatibilities: {
-      CPU: "Socket AM4",
+      CPU: {
+        socket: "AM4",
+      },
     },
     parameters: [
       { label: "Rodzina procesorów", value: "AMD Ryzen™" },
       { label: "Seria procesora", value: "Ryzen™ 7 5700X" },
       { label: "Gniazdo procesora (socket)", value: "Socket AM4" },
+      {
+        label: "Obsługiwany chipset",
+        value: "A520, B350, B450, X470, X570, X370",
+      },
       { label: "Architektura", value: "Zen 3" },
       {
         label: "Taktowanie rdzenia",
@@ -54,7 +62,9 @@ export const CPUS = [
     name: "Intel Core i5-13600KF",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/CPUs/cpu_3.jpg"),
     compatibilities: {
-      CPU: "Socket AM5",
+      CPU: {
+        socket: "1700",
+      },
     },
     parameters: [
       { label: "Rodzina procesorów", value: "Intel Core i5" },
@@ -79,11 +89,14 @@ export const CPUS = [
     name: "AMD Ryzen 9 7950X",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/CPUs/cpu_4.jpg"),
     compatibilities: {
-      CPU: "Socket AM5",
+      CPU: {
+        socket: "AM5",
+      },
     },
     parameters: [
       { label: "Rodzina procesorów", value: "AMD Ryzen™" },
       { label: "Seria procesora", value: "Ryzen™ 9 7950X" },
+      { label: "Obsługiwany chipset", value: "X670, X670E, B650E, B560" },
       { label: "Gniazdo procesora (socket)", value: "Socket AM5" },
       { label: "Architektura", value: "Zen 4" },
       {

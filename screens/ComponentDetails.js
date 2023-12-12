@@ -16,7 +16,6 @@ const ComponentDetails = ({ navigation, route }) => {
   const data = route.params.data;
   const isConfigurating = route.params.isConfigurating;
   const componentNavigation = route.params.componentNavigation;
-  console.log(componentNavigation);
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [expandedIcon, setExpandedIcon] = useState("chevron-up");

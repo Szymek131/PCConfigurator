@@ -50,7 +50,11 @@ const PowerSupplyStep = ({ navigation, route }) => {
   const categoryItemHandler = () => {
     navigation.navigate("BrowseComponents", {
       categoryId: 5,
-      data: POWER_SUPPLIES,
+      data: POWER_SUPPLIES.filter((ps) => {
+        return (
+          ps.compatibilities.power >= compatibilities.PowerSupply.recommended
+        );
+      }),
       name: "Zasilanie",
       isConfigurating: true,
       componentNavigation: "PowerSupplyStep",

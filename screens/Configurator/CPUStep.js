@@ -13,7 +13,6 @@ const CPUStep = ({ navigation, route }) => {
     useContext(configuratorContext);
 
   console.log("current compatibilities", compatibilities);
-  console.log("parts", pcSet.parts);
   const [image, setImage] = useState(
     require("D:/PracaInz/PCConfigurator/assets/images/categories/Procesor.png")
   );
@@ -44,8 +43,8 @@ const CPUStep = ({ navigation, route }) => {
   const categoryItemHandler = () => {
     navigation.navigate("BrowseComponents", {
       categoryId: 3,
-      data: CPUS.filter((cpu) =>
-        cpu.compatibilities.CPU.includes(compatibilities.CPU)
+      data: CPUS.filter(
+        (cpu) => cpu.compatibilities.CPU.socket == compatibilities.CPU.socket
       ),
       name: "Procesory",
       isConfigurating: true,

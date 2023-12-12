@@ -50,7 +50,9 @@ const CoolerStep = ({ navigation, route }) => {
   const categoryItemHandler = () => {
     navigation.navigate("BrowseComponents", {
       categoryId: 7,
-      data: COOLERS,
+      data: COOLERS.filter((cooler) => {
+        return cooler.compatibilities.CPU.includes(compatibilities.CPU.socket);
+      }),
       name: "Chłodzenie",
       isConfigurating: true,
       componentNavigation: "CoolerStep",

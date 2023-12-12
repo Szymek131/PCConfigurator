@@ -2,15 +2,28 @@ import React, { createContext, useState } from "react";
 
 export const configuratorContext = createContext({
   compatibilities: {
-    CPU: [],
-    GPU: [],
-    RAM: [],
-    Memory: [],
-  },
-  createdSets: [],
-  pcSet: {
-    name: "",
-    parts: [],
+    motherboard: {
+      format: "",
+    },
+    CPU: {
+      socket: "",
+    },
+    GPU: {
+      input: [],
+      lenght: 0,
+    },
+    RAM: {
+      type: "",
+      slots: 0,
+    },
+    Memory: {},
+    cooler: {
+      height: 0,
+    },
+    PowerSupply: {
+      recommended: 0,
+    },
+    case: {},
   },
   updateCompatibilities: (compatibilities) => {},
   updatePcSet: (pcSet) => {},
@@ -18,12 +31,31 @@ export const configuratorContext = createContext({
 
 const ConfiguratorContextProvider = ({ children }) => {
   const [currCompatibilities, setCurrCompatibilities] = useState({
-    CPU: [],
-    GPU: [],
-    RAM: [],
-    Memory: [],
+    motherboard: {
+      format: "",
+    },
+    CPU: {
+      socket: "",
+    },
+    GPU: {
+      input: [],
+      lenght: 0,
+    },
+    RAM: {
+      type: "",
+      slots: 0,
+    },
+    Memory: {},
+    cooler: {
+      height: 0,
+    },
+    PowerSupply: {
+      recommended: 0,
+    },
+    case: {},
   });
   const [currPcSet, setCurrPcSet] = useState({
+    id: "",
     name: "",
     parts: [{}, {}, {}, {}, {}, {}, {}, {}],
   });
