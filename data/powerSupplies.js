@@ -56,7 +56,7 @@ export const POWER_SUPPLIES = [
   },
   {
     id: 4,
-    name: "Zasilacz BE QUIET! Pure Power 12 M 1000W 80 Plus Gold ATX3.0 PCIe5.0",
+    name: "Zasilacz BE QUIET! Pure Power 12 M 550W 80 Plus Gold ATX3.0 PCIe5.0",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/PowerSupplies/powerSupply_4.jpg"),
     compatibilities: {
       power: 550,

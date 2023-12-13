@@ -60,7 +60,7 @@ export const CATEGORIES = [
   {
     id: 8,
     name: "Obudowa",
-    categoryName: "Oboudowy",
+    categoryName: "Obudowy",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/categories/Obudowa.png"),
     data: CASES,
   },

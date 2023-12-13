@@ -10,6 +10,7 @@ const ComponentsCategories = ({ navigation }) => {
         categoryId: itemData.item.id,
         data: itemData.item.data,
         name: itemData.item.categoryName,
+        pcSetScreen: false,
       });
     };
 

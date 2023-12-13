@@ -16,6 +16,7 @@ export const COOLERS = [
         "AM5",
         "AM4",
       ],
+      height: 163,
     },
     parameters: [
       { label: "Rodzaj chłodzenia", value: "Aktywne" },
@@ -48,6 +49,7 @@ export const COOLERS = [
         "AM5",
         "AM4",
       ],
+      height: 156,
     },
     parameters: [
       { label: "Rodzaj chłodzenia", value: "Aktywne" },
@@ -79,6 +81,7 @@ export const COOLERS = [
         "AM5",
         "AM4",
       ],
+      height: 52,
     },
     parameters: [
       { label: "Rodzaj chłodzenia", value: "Wodne" },

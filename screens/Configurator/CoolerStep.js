@@ -8,6 +8,7 @@ const CoolerStep = ({ navigation, route }) => {
   const isChoosed = route.params.isChoosed;
   const choosedName = route.params.name;
   const partData = route.params.data;
+  const CoolerCompatibilities = route.params.compatibilities;
 
   const { compatibilities, updateCompatibilities, pcSet, updatePcSet } =
     useContext(configuratorContext);
@@ -27,6 +28,16 @@ const CoolerStep = ({ navigation, route }) => {
       setComponentName("Chłodzenie");
     }
   }, [choosedImage]);
+
+  const updateCoolerCompatibilities = () => {
+    const updatedCoolerCompatibilities = {
+      ...compatibilities,
+      Cooler: {
+        height: CoolerCompatibilities.height,
+      },
+    };
+    updateCompatibilities(updatedCoolerCompatibilities);
+  };
 
   const updateSet = () => {
     const updatedSet = {

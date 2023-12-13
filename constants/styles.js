@@ -8,6 +8,8 @@ export const GlobalStyles = {
     triary700: "#181D27",
     dark500: "#3F4B3B",
     light300: "#DFE1CC",
+    //light300: "#DEF5F7",
     dark900: "black",
+    red800: "#cc0000",
   },
 };

@@ -17,7 +17,7 @@ export const configuratorContext = createContext({
       slots: 0,
     },
     Memory: {},
-    cooler: {
+    Cooler: {
       height: 0,
     },
     PowerSupply: {
@@ -27,6 +27,7 @@ export const configuratorContext = createContext({
   },
   updateCompatibilities: (compatibilities) => {},
   updatePcSet: (pcSet) => {},
+  updateCreatedSets: (createdSet) => {},
 });
 
 const ConfiguratorContextProvider = ({ children }) => {
@@ -46,7 +47,7 @@ const ConfiguratorContextProvider = ({ children }) => {
       slots: 0,
     },
     Memory: {},
-    cooler: {
+    Cooler: {
       height: 0,
     },
     PowerSupply: {
@@ -55,7 +56,7 @@ const ConfiguratorContextProvider = ({ children }) => {
     case: {},
   });
   const [currPcSet, setCurrPcSet] = useState({
-    id: "",
+    id: null,
     name: "",
     parts: [{}, {}, {}, {}, {}, {}, {}, {}],
   });
@@ -69,11 +70,17 @@ const ConfiguratorContextProvider = ({ children }) => {
     setCurrPcSet(pcSet);
   };
 
+  const updateCreatedSets = (createdSet) => {
+    setCreatedSets(createdSet);
+  };
+
   const value = {
     compatibilities: currCompatibilities,
     pcSet: currPcSet,
+    createdSets: createdSets,
     updateCompatibilities: updateCompatibilities,
     updatePcSet: updatePcSet,
+    updateCreatedSets: updateCreatedSets,
   };
 
   return (

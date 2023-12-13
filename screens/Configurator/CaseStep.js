@@ -47,7 +47,9 @@ const CaseStep = ({ navigation, route }) => {
         return (
           cs.compatibilities.motherboard.includes(
             compatibilities.motherboard.format
-          ) && cs.compatibilities.GPULength >= compatibilities.GPU.lenght
+          ) &&
+          cs.compatibilities.GPULength >= compatibilities.GPU.lenght &&
+          cs.compatibilities.CoolerHeight >= compatibilities.Cooler.height
         );
       }),
       name: "Obudowa",
@@ -57,9 +59,10 @@ const CaseStep = ({ navigation, route }) => {
   };
 
   const nextStepHandler = async () => {
-    navigation.navigate("BrowseComponents", {
-      data: pcSet.parts,
+    navigation.navigate("SetOverview", {
       name: "twój zestaw",
+      isCreating: true,
+      createdSet: pcSet,
     });
   };
 

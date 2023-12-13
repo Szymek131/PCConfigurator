@@ -1,4 +1,4 @@
-import { View, FlatList, StyleSheet } from "react-native";
+import { View, FlatList, StyleSheet, ScrollView } from "react-native";
 import { GlobalStyles } from "../constants/styles";
 import ComponentItem from "../components/BrowseComponents/ComponentItem";
 
@@ -29,7 +29,16 @@ const BrowseComponents = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
-      <FlatList data={data} renderItem={renderComponentItem} />
+      <ScrollView>
+        <View style={styles.listContainer}>
+          <FlatList
+            data={data}
+            renderItem={renderComponentItem}
+            keyExtractor={(item) => item.name.toString()}
+            scrollEnabled={false}
+          />
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -42,5 +51,8 @@ const styles = StyleSheet.create({
     backgroundColor: GlobalStyles.colors.light300,
     justifyContent: "center",
     alignItems: "center",
+  },
+  listContainer: {
+    flex: 5,
   },
 });

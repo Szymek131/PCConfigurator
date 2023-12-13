@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 36,
     fontWeight: "bold",
+    textAlign: "center",
   },
   headerContainer: {
     justifyContent: "center",

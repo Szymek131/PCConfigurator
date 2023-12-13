@@ -8,6 +8,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ComponentsCategories from "./screens/ComponentsCategories";
 import BrowseComponents from "./screens/BrowseComponents";
 import ComponentDetails from "./screens/ComponentDetails";
+import CreatedSets from "./screens/CreatedSets";
+
+import SetOverview from "./components/CreatedSets/SetOverview";
 
 import Configurator from "./screens/Configurator";
 import MotherboardStep from "./screens/Configurator/MotherboardStep";
@@ -51,13 +54,29 @@ const BottomTabsScreens = () => {
         }}
       />
       <BottomTabs.Screen
+        name="CreatedSets"
+        component={CreatedSets}
+        options={{
+          title: "Stworzone zestawy",
+          tabBarLabel: "Stworzone zestawy",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="bookmark" size={size} color={color} />
+          ),
+          headerTitleStyle: {
+            fontSize: 22,
+            fontWeight: "bold",
+          },
+          headerTintColor: GlobalStyles.colors.dark900,
+        }}
+      />
+      <BottomTabs.Screen
         name="Configurator"
         component={Configurator}
         options={{
           title: "Konfigurator",
           tabBarLabel: "Konfigurator",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="build" size={size} color={color} />
+            <Ionicons name="construct" size={size} color={color} />
           ),
           headerTitleStyle: {
             fontSize: 22,
@@ -90,6 +109,18 @@ export default function App() {
               }}
             />
             <Stack.Screen
+              name="SetOverview"
+              component={SetOverview}
+              options={({ route }) => ({
+                title: route.params.name,
+                headerTitleStyle: {
+                  fontSize: 22,
+                  fontWeight: "bold",
+                },
+                headerTintColor: GlobalStyles.colors.dark900,
+              })}
+            />
+            <Stack.Screen
               name="BrowseComponents"
               component={BrowseComponents}
               options={({ route }) => ({
@@ -117,96 +148,56 @@ export default function App() {
               name="MotherboardStep"
               component={MotherboardStep}
               options={{
-                title: "MotherboardStep",
-                headerBackTitleStyle: {
-                  fontSize: 22,
-                  fontWeight: "bold",
-                },
-                headerTintColor: GlobalStyles.colors.dark900,
+                headerShown: false,
               }}
             />
             <Stack.Screen
               name="CPUStep"
               component={CPUStep}
               options={{
-                title: "CPUStep",
-                headerBackTitleStyle: {
-                  fontSize: 22,
-                  fontWeight: "bold",
-                },
-                headerTintColor: GlobalStyles.colors.dark900,
+                headerShown: false,
               }}
             />
             <Stack.Screen
               name="GPUStep"
               component={GPUStep}
               options={{
-                title: "GPUStep",
-                headerBackTitleStyle: {
-                  fontSize: 22,
-                  fontWeight: "bold",
-                },
-                headerTintColor: GlobalStyles.colors.dark900,
+                headerShown: false,
               }}
             />
             <Stack.Screen
               name="RAMStep"
               component={RAMStep}
               options={{
-                title: "RAMStep",
-                headerBackTitleStyle: {
-                  fontSize: 22,
-                  fontWeight: "bold",
-                },
-                headerTintColor: GlobalStyles.colors.dark900,
+                headerShown: false,
               }}
             />
             <Stack.Screen
               name="MemoryStep"
               component={MemoryStep}
               options={{
-                title: "MemoryStep",
-                headerBackTitleStyle: {
-                  fontSize: 22,
-                  fontWeight: "bold",
-                },
-                headerTintColor: GlobalStyles.colors.dark900,
+                headerShown: false,
               }}
             />
             <Stack.Screen
               name="CoolerStep"
               component={CoolerStep}
               options={{
-                title: "CoolerStep",
-                headerBackTitleStyle: {
-                  fontSize: 22,
-                  fontWeight: "bold",
-                },
-                headerTintColor: GlobalStyles.colors.dark900,
+                headerShown: false,
               }}
             />
             <Stack.Screen
               name="PowerSupplyStep"
               component={PowerSupplyStep}
               options={{
-                title: "PowerSupplyStep",
-                headerBackTitleStyle: {
-                  fontSize: 22,
-                  fontWeight: "bold",
-                },
-                headerTintColor: GlobalStyles.colors.dark900,
+                headerShown: false,
               }}
             />
             <Stack.Screen
               name="CaseStep"
               component={CaseStep}
               options={{
-                title: "CaseStep",
-                headerBackTitleStyle: {
-                  fontSize: 22,
-                  fontWeight: "bold",
-                },
-                headerTintColor: GlobalStyles.colors.dark900,
+                headerShown: false,
               }}
             />
           </Stack.Navigator>
