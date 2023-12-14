@@ -1,7 +1,7 @@
 export const GPUS = [
   {
     id: 1,
-    name: "ASUS GeForce RTX 4060 Ti OC Dual 8GB DLSS 3",
+    name: "ASUS GeForce RTX 4060 Ti 8GB",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/GPUs/gpu_1.jpg"),
     compatibilities: {
       GPU: {
@@ -39,7 +39,7 @@ export const GPUS = [
   },
   {
     id: 2,
-    name: "Gigabyte GeForce RTX 4080 EAGLE 16GB GDDRX6",
+    name: "Gigabyte GeForce RTX 4080 EAGLE 16GB",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/GPUs/gpu_2.jpg"),
     compatibilities: {
       GPU: {
@@ -78,7 +78,7 @@ export const GPUS = [
   },
   {
     id: 3,
-    name: "Gigabyte GeForce RTX 4090 WINDFORCE 24GB GDDR6X",
+    name: "Gigabyte GeForce RTX 4090 WINDFORCE 24GB",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/GPUs/gpu_3.jpg"),
     compatibilities: {
       GPU: {
@@ -117,7 +117,7 @@ export const GPUS = [
   },
   {
     id: 4,
-    name: "Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6",
+    name: "Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/GPUs/gpu_4.jpg"),
     compatibilities: {
       GPU: {

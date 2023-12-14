@@ -19,7 +19,7 @@ const SetOverview = ({ navigation, route }) => {
   const isCreating = route.params.isCreating;
   const createdSet = route.params.createdSet;
 
-  console.log(createdSet);
+  //console.log(createdSet);
 
   const {
     updatePcSet,
@@ -30,6 +30,7 @@ const SetOverview = ({ navigation, route }) => {
   } = useContext(configuratorContext);
   const [isModalVisible, setModalVisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  console.log(createdSets);
 
   const clearCompatibilities = () => {
     const clearedCompatibilities = {

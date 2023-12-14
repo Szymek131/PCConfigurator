@@ -51,6 +51,7 @@ const BottomTabsScreens = () => {
             fontWeight: "bold",
           },
           headerTintColor: GlobalStyles.colors.dark900,
+          headerTitleAlign: "center",
         }}
       />
       <BottomTabs.Screen
@@ -67,6 +68,7 @@ const BottomTabsScreens = () => {
             fontWeight: "bold",
           },
           headerTintColor: GlobalStyles.colors.dark900,
+          headerTitleAlign: "center",
         }}
       />
       <BottomTabs.Screen
@@ -83,6 +85,7 @@ const BottomTabsScreens = () => {
             fontWeight: "bold",
           },
           headerTintColor: GlobalStyles.colors.dark900,
+          headerTitleAlign: "center",
         }}
       />
     </BottomTabs.Navigator>
@@ -118,6 +121,7 @@ export default function App() {
                   fontWeight: "bold",
                 },
                 headerTintColor: GlobalStyles.colors.dark900,
+                headerTitleAlign: "center",
               })}
             />
             <Stack.Screen
@@ -130,6 +134,7 @@ export default function App() {
                   fontWeight: "bold",
                 },
                 headerTintColor: GlobalStyles.colors.dark900,
+                headerTitleAlign: "center",
               })}
             />
             <Stack.Screen
@@ -142,6 +147,7 @@ export default function App() {
                   fontWeight: "bold",
                 },
                 headerTintColor: GlobalStyles.colors.dark900,
+                headerTitleAlign: "center",
               }}
             />
             <Stack.Screen

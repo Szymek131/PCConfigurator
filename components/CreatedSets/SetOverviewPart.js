@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     width: 200,
-    height: 230,
+    height: 250,
     justifyContent: "center",
     alignItems: "center",
     paddingRight: 20,
@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 24,
     margin: 10,
+    paddingVertical: 10,
   },
   text: {
     flex: 2,

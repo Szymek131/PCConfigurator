@@ -1,7 +1,7 @@
 export const POWER_SUPPLIES = [
   {
     id: 1,
-    name: "Zasilacz BE QUIET! Pure Power 12 M 1000W 80 Plus Gold ATX3.0 PCIe5.0",
+    name: "Zasilacz BE QUIET! Pure Power 12 M 1000W 80",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/PowerSupplies/powerSupply_1.jpg"),
     compatibilities: {
       power: 1000,
@@ -20,7 +20,7 @@ export const POWER_SUPPLIES = [
   },
   {
     id: 2,
-    name: "Zasilacz MSI MPG A850G 850W 80 Plus Gold PCIe5.0",
+    name: "Zasilacz MSI MPG A850G 850W 80",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/PowerSupplies/powerSupply_2.jpg"),
     compatibilities: {
       power: 850,
@@ -39,7 +39,7 @@ export const POWER_SUPPLIES = [
   },
   {
     id: 3,
-    name: "Zasilacz CORSAIR RM850X 850W 80 Plus Gold",
+    name: "Zasilacz CORSAIR RM850X 850W 80",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/PowerSupplies/powerSupply_3.jpg"),
     compatibilities: {
       power: 850,
@@ -56,7 +56,7 @@ export const POWER_SUPPLIES = [
   },
   {
     id: 4,
-    name: "Zasilacz BE QUIET! Pure Power 12 M 550W 80 Plus Gold ATX3.0 PCIe5.0",
+    name: "Zasilacz BE QUIET! Pure Power 12 M 550W 80",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/PowerSupplies/powerSupply_4.jpg"),
     compatibilities: {
       power: 550,

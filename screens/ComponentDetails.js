@@ -108,22 +108,22 @@ const ComponentDetails = ({ navigation, route }) => {
             </View>
           </View>
           <View style={styles.buttonContainer}>
+            <Button
+              label="Wróć"
+              buttonColor={GlobalStyles.colors.primary500}
+              buttonTextColor="black"
+              onPress={setGoBackHandler}
+              active={true}
+            />
             {isConfigurating && (
               <Button
                 label="Wybierz"
-                buttonColor={GlobalStyles.colors.primary500}
-                buttonTextColor="black"
+                buttonColor={GlobalStyles.colors.triary700}
+                buttonTextColor="white"
                 onPress={handleChoose}
                 active={true}
               />
             )}
-            <Button
-              label="Wróć"
-              buttonColor={GlobalStyles.colors.triary700}
-              buttonTextColor="white"
-              onPress={setGoBackHandler}
-              active={true}
-            />
           </View>
         </View>
       </ScrollView>
@@ -172,6 +172,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     borderRadius: 64,
     maxWidth: 350,
+    elevation: 4,
     shadowColor: "black",
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
