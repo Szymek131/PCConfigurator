@@ -12,15 +12,14 @@ import "react-native-get-random-values";
 import Modal from "react-native-modal";
 import Button from "../UI/Button";
 import SetOverviewPart from "./SetOverviewPart";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { configuratorContext } from "../../store/context/configurator-context";
 
 const SetOverview = ({ navigation, route }) => {
   const isCreating = route.params.isCreating;
   const createdSet = route.params.createdSet;
-
-  //console.log(createdSet);
-
+  const onNavigateBack = route.params.onNavigateBack;
+  console.log("Set overview", createdSet.parts[3]);
   const {
     updatePcSet,
     updateCreatedSets,
@@ -30,7 +29,14 @@ const SetOverview = ({ navigation, route }) => {
   } = useContext(configuratorContext);
   const [isModalVisible, setModalVisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  console.log(createdSets);
+  //console.log(createdSet.id);
+  console.log(createdSet.compatibilities);
+  useEffect(() => {
+    // Check if onNavigateBack is defined and execute it
+    if (onNavigateBack) {
+      onNavigateBack();
+    }
+  }, [createdSet]);
 
   const clearCompatibilities = () => {
     const clearedCompatibilities = {
@@ -65,14 +71,19 @@ const SetOverview = ({ navigation, route }) => {
     updateCompatibilities(clearedCompatibilities);
   };
 
-  const handleSaveSet = () => {
+  const updateSet = () => {
     const updatedSet = {
       ...createdSet,
       id: uuidv4(),
       name: inputValue,
+      compatibilities: compatibilities,
     };
     updatePcSet(updatedSet);
     createdSets.push(updatedSet);
+  };
+
+  const handleSaveSet = () => {
+    updateSet();
     console.log(createdSets);
     clearCompatibilities();
     navigation.navigate("CreatedSets");
@@ -81,9 +92,7 @@ const SetOverview = ({ navigation, route }) => {
   const handleDeleteSet = () => {
     console.log(createdSets);
     const setId = createdSet.id;
-    const filteredSets = createdSets.filter((set) => {
-      set.id !== setId;
-    });
+    const filteredSets = createdSets.filter((set) => set.id !== setId);
     updateCreatedSets(filteredSets);
     console.log(createdSets);
 
@@ -118,6 +127,10 @@ const SetOverview = ({ navigation, route }) => {
         componentId: itemData.item.id,
         name: itemData.item.name,
         isConfigurating: false,
+        compatibilities: createdSet.compatibilities,
+        isEditing: isCreating ? false : true,
+        isChoosingSubstitute: false,
+        createdSetId: isCreating ? null : createdSet.id,
       });
     };
 

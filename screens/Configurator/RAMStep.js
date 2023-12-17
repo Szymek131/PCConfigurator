@@ -8,6 +8,7 @@ const RAMStep = ({ navigation, route }) => {
   const choosedName = route.params.name;
   const isChoosed = route.params.isChoosed;
   const partData = route.params.data;
+  const RAMCompatibilities = route.params.compatibilities;
 
   const { compatibilities, updateCompatibilities, pcSet, updatePcSet } =
     useContext(configuratorContext);
@@ -30,6 +31,18 @@ const RAMStep = ({ navigation, route }) => {
     }
   }, [choosedImage]);
 
+  const updateRAMCompatibilities = () => {
+    const updatedRAMCompatibilities = {
+      ...compatibilities,
+      RAM: {
+        ...compatibilities.RAM,
+        type: RAMCompatibilities.RAM.type,
+        slots: RAMCompatibilities.RAM.number,
+      },
+    };
+    updateCompatibilities(updatedRAMCompatibilities);
+  };
+
   const updateSet = () => {
     const updatedSet = {
       ...pcSet,
@@ -46,6 +59,7 @@ const RAMStep = ({ navigation, route }) => {
       isChoosed: false,
       image: "",
     });
+    updateRAMCompatibilities();
     updateSet();
   };
 
@@ -54,12 +68,14 @@ const RAMStep = ({ navigation, route }) => {
       categoryId: 4,
       data: RAMS.filter((ram) => {
         return (
-          compatibilities.RAM.slots >= ram.compatibilities.RAM.number &&
-          compatibilities.RAM.type === ram.compatibilities.RAM.type
+          compatibilities.motherboard.RAMslots >=
+            ram.compatibilities.RAM.number &&
+          compatibilities.motherboard.RAMtype === ram.compatibilities.RAM.type
         );
       }),
       name: "Pamięć ram",
       isConfigurating: true,
+      isEditing: false,
       componentNavigation: "RAMStep",
     });
   };

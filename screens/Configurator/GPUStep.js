@@ -36,6 +36,7 @@ const GPUStep = ({ navigation, route }) => {
       GPU: {
         ...compatibilities.GPU,
         length: GPUCompatibilities.GPU.length,
+        input: GPUCompatibilities.GPU.input,
       },
       PowerSupply: {
         ...compatibilities.PowerSupply,
@@ -72,7 +73,7 @@ const GPUStep = ({ navigation, route }) => {
         const gpuCompatibility = gpu.compatibilities?.GPU.input;
         return (
           gpuCompatibility &&
-          compatibilities.GPU.input.some((value) =>
+          compatibilities.motherboard.GPUSocket.some((value) =>
             gpuCompatibility.includes(value)
           )
         );

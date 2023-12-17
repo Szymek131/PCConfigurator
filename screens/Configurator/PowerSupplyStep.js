@@ -8,6 +8,7 @@ const PowerSupplyStep = ({ navigation, route }) => {
   const isChoosed = route.params.isChoosed;
   const choosedName = route.params.name;
   const partData = route.params.data;
+  const PowerSupplyCompatibilities = route.params.compatibilities;
 
   const { compatibilities, updateCompatibilities, pcSet, updatePcSet } =
     useContext(configuratorContext);
@@ -28,6 +29,17 @@ const PowerSupplyStep = ({ navigation, route }) => {
     }
   }, [choosedImage]);
 
+  const updatePowerSupplyCompatibilities = () => {
+    const updatedPowerSupplyCompatibilities = {
+      ...compatibilities,
+      PowerSupply: {
+        ...compatibilities.PowerSupply,
+        power: PowerSupplyCompatibilities.power,
+      },
+    };
+    updateCompatibilities(updatedPowerSupplyCompatibilities);
+  };
+
   const updateSet = () => {
     const updatedSet = {
       ...pcSet,
@@ -44,6 +56,7 @@ const PowerSupplyStep = ({ navigation, route }) => {
       isChoosed: false,
       image: "",
     });
+    updatePowerSupplyCompatibilities();
     updateSet();
   };
 

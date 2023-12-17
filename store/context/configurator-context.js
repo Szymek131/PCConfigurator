@@ -4,13 +4,17 @@ export const configuratorContext = createContext({
   compatibilities: {
     motherboard: {
       format: "",
+      GPUSocket: [],
+      CPUSocket: "",
+      RAMtype: "",
+      RAMslots: 0,
     },
     CPU: {
       socket: "",
     },
     GPU: {
       input: [],
-      lenght: 0,
+      length: 0,
     },
     RAM: {
       type: "",
@@ -22,8 +26,13 @@ export const configuratorContext = createContext({
     },
     PowerSupply: {
       recommended: 0,
+      power: 0,
     },
-    case: {},
+    Case: {
+      MaxGPULength: 0,
+      MaxCoolerHeight: 0,
+      MotherboardType: [],
+    },
   },
   updateCompatibilities: (compatibilities) => {},
   updatePcSet: (pcSet) => {},
@@ -34,13 +43,17 @@ const ConfiguratorContextProvider = ({ children }) => {
   const [currCompatibilities, setCurrCompatibilities] = useState({
     motherboard: {
       format: "",
+      GPUSocket: [],
+      CPUSocket: "",
+      RAMtype: "",
+      RAMslots: 0,
     },
     CPU: {
       socket: "",
     },
     GPU: {
       input: [],
-      lenght: 0,
+      length: 0,
     },
     RAM: {
       type: "",
@@ -53,12 +66,17 @@ const ConfiguratorContextProvider = ({ children }) => {
     PowerSupply: {
       recommended: 0,
     },
-    case: {},
+    Case: {
+      MaxGPULength: 0,
+      MaxCoolerHeight: 0,
+      MotherboardType: [],
+    },
   });
   const [currPcSet, setCurrPcSet] = useState({
     id: null,
     name: "",
     parts: [{}, {}, {}, {}, {}, {}, {}, {}],
+    compatibilities: null,
   });
   const [createdSets, setCreatedSets] = useState([]);
 

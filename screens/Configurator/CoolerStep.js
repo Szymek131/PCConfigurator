@@ -55,6 +55,7 @@ const CoolerStep = ({ navigation, route }) => {
       isChoosed: false,
       image: "",
     });
+    updateCoolerCompatibilities();
     updateSet();
   };
 

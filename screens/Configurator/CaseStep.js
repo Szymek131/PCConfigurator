@@ -8,6 +8,7 @@ const CaseStep = ({ navigation, route }) => {
   const isChoosed = route.params.isChoosed;
   const choosedName = route.params.name;
   const partData = route.params.data;
+  const CaseCompatibilities = route.params.compatibilities;
 
   const { compatibilities, updateCompatibilities, pcSet, updatePcSet } =
     useContext(configuratorContext);
@@ -24,6 +25,7 @@ const CaseStep = ({ navigation, route }) => {
       setComponentName(choosedName);
       setIsNextStepAvailable(true);
       updateSet();
+      updateCaseCompatibilities();
     } else {
       setComponentName("Obudowa");
     }
@@ -40,6 +42,18 @@ const CaseStep = ({ navigation, route }) => {
     updatePcSet(updatedSet);
   };
 
+  const updateCaseCompatibilities = () => {
+    const updatedCaseCompatibilities = {
+      ...compatibilities,
+      Case: {
+        MaxGPULength: CaseCompatibilities.GPULength,
+        MaxCoolerHeight: CaseCompatibilities.CoolerHeight,
+        MotherboardType: CaseCompatibilities.motherboard,
+      },
+    };
+    updateCompatibilities(updatedCaseCompatibilities);
+  };
+
   const categoryItemHandler = () => {
     navigation.navigate("BrowseComponents", {
       categoryId: 8,
@@ -48,7 +62,7 @@ const CaseStep = ({ navigation, route }) => {
           cs.compatibilities.motherboard.includes(
             compatibilities.motherboard.format
           ) &&
-          cs.compatibilities.GPULength >= compatibilities.GPU.lenght &&
+          cs.compatibilities.GPULength >= compatibilities.GPU.length &&
           cs.compatibilities.CoolerHeight >= compatibilities.Cooler.height
         );
       }),
@@ -63,6 +77,7 @@ const CaseStep = ({ navigation, route }) => {
       name: "twój zestaw",
       isCreating: true,
       createdSet: pcSet,
+      isSetCreated: false,
     });
   };
 

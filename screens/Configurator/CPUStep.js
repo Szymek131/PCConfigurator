@@ -8,6 +8,7 @@ const CPUStep = ({ navigation, route }) => {
   const isChoosed = route.params.isChoosed;
   const choosedName = route.params.name;
   const partData = route.params.data;
+  const CPUCompatibilities = route.params.compatibilities;
 
   const { compatibilities, updateCompatibilities, pcSet, updatePcSet } =
     useContext(configuratorContext);
@@ -29,6 +30,17 @@ const CPUStep = ({ navigation, route }) => {
     }
   }, [choosedImage]);
 
+  const updateCPUCompatibilities = () => {
+    const updatedCPUCompatibilities = {
+      ...compatibilities,
+      CPU: {
+        ...compatibilities.CPU,
+        socket: CPUCompatibilities.CPU.socket,
+      },
+    };
+    updateCompatibilities(updatedCPUCompatibilities);
+  };
+
   const updateSet = () => {
     const updatedSet = {
       ...pcSet,
@@ -36,7 +48,6 @@ const CPUStep = ({ navigation, route }) => {
     const updatedParts = [...pcSet.parts];
     updatedParts[1] = partData;
     updatedSet.parts = updatedParts;
-
     updatePcSet(updatedSet);
   };
 
@@ -44,7 +55,9 @@ const CPUStep = ({ navigation, route }) => {
     navigation.navigate("BrowseComponents", {
       categoryId: 3,
       data: CPUS.filter(
-        (cpu) => cpu.compatibilities.CPU.socket == compatibilities.CPU.socket
+        (cpu) =>
+          cpu.compatibilities.CPU.socket ==
+          compatibilities.motherboard.CPUSocket
       ),
       name: "Procesory",
       isConfigurating: true,
@@ -57,6 +70,7 @@ const CPUStep = ({ navigation, route }) => {
       isChoosed: false,
       image: "",
     });
+    updateCPUCompatibilities();
     updateSet();
   };
 

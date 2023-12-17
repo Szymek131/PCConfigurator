@@ -3,6 +3,7 @@ export const CASES = [
     id: 1,
     name: "Silver Monkey X Chest TGM",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Cases/case_1.jpg"),
+    categoryId: 8,
     compatibilities: {
       motherboard: ["ATX", "m-ATX", "ITX"],
       GPULength: 370,
@@ -35,6 +36,7 @@ export const CASES = [
     id: 2,
     name: "be quiet! Pure Base 500DX Black",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Cases/case_2.jpg"),
+    categoryId: 8,
     compatibilities: {
       motherboard: ["ATX", "m-ATX", "ITX"],
       GPULength: 369,
@@ -67,6 +69,7 @@ export const CASES = [
     id: 3,
     name: "ENDORFY Signum 300 ARGB",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Cases/case_3.jpg"),
+    categoryId: 8,
     compatibilities: {
       motherboard: ["ATX", "m-ATX", "ITX"],
       GPULength: 325,

@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
 import { GlobalStyles } from "../constants/styles";
 import { configuratorContext } from "../store/context/configurator-context";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import CreatedSetItem from "../components/CreatedSets/CreatedSetItem";
 import Button from "../components/UI/Button";
 

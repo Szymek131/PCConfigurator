@@ -3,11 +3,12 @@ export const MOTHERBOARDS = [
     id: 1,
     name: "Płyta główna ASUS TUF Gaming B450M-Pro II",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Motherboards/motherboard_1.jpg"),
+    categoryId: 1,
     compatibilities: {
       CPU: {
         socket: "AM4",
       },
-      GPU: ["PCIe 3.0 x16"],
+      GPU: ["PCIe 4.0 x16", "PCIe 3.0 x16"],
       RAM: {
         type: "DIMM",
         slots: 4,
@@ -73,6 +74,7 @@ export const MOTHERBOARDS = [
     id: 2,
     name: "Płyta główna MSI MAG B550 Tomahawk",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Motherboards/motherboard_2.jpg"),
+    categoryId: 1,
     compatibilities: {
       CPU: {
         socket: "AM5",
@@ -143,6 +145,7 @@ export const MOTHERBOARDS = [
     id: 3,
     name: "MSI B550-A PRO",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Motherboards/motherboard_3.jpg"),
+    categoryId: 1,
     compatibilities: {
       CPU: {
         socket: "AM4",
@@ -211,6 +214,7 @@ export const MOTHERBOARDS = [
     id: 4,
     name: "MSI MAG Z790 TOMAHAWK WIFI",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Motherboards/motherboard_4.jpg"),
+    categoryId: 1,
     compatibilities: {
       CPU: {
         socket: "1700",

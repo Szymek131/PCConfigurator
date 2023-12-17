@@ -3,6 +3,7 @@ export const GPUS = [
     id: 1,
     name: "ASUS GeForce RTX 4060 Ti 8GB",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/GPUs/gpu_1.jpg"),
+    categoryId: 2,
     compatibilities: {
       GPU: {
         input: "PCIe 4.0 x16",
@@ -41,6 +42,7 @@ export const GPUS = [
     id: 2,
     name: "Gigabyte GeForce RTX 4080 EAGLE 16GB",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/GPUs/gpu_2.jpg"),
+    categoryId: 2,
     compatibilities: {
       GPU: {
         input: "PCIe 4.0 x16",
@@ -80,6 +82,7 @@ export const GPUS = [
     id: 3,
     name: "Gigabyte GeForce RTX 4090 WINDFORCE 24GB",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/GPUs/gpu_3.jpg"),
+    categoryId: 2,
     compatibilities: {
       GPU: {
         input: "PCIe 4.0 x16",
@@ -119,6 +122,7 @@ export const GPUS = [
     id: 4,
     name: "Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB",
     imgSource: require("D:/PracaInz/PCConfigurator/assets/images/GPUs/gpu_4.jpg"),
+    categoryId: 2,
     compatibilities: {
       GPU: {
         input: "PCIe 4.0 x16",

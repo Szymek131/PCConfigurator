@@ -11,15 +11,28 @@ import { GlobalStyles } from "../constants/styles";
 import { useState } from "react";
 import IconButton from "../components/UI/IconButton";
 import Button from "../components/UI/Button";
+import { setCompatibleData } from "../utils/setCompatibleData";
+import { configuratorContext } from "../store/context/configurator-context";
+import { useContext } from "react";
+import { updateSetPart } from "../utils/updateSetPart";
 
 const ComponentDetails = ({ navigation, route }) => {
   const data = route.params.data;
+  const compatibilities = route.params.compatibilities;
   const isConfigurating = route.params.isConfigurating;
   const componentNavigation = route.params.componentNavigation;
+  const isEditing = route.params.isEditing;
+  const createdSetId = route.params.createdSetId;
+  const isChoosingSubstitute = route.params.isChoosingSubstitute;
 
+  const { createdSets, updateCreatedSets } = useContext(configuratorContext);
   const [isExpanded, setIsExpanded] = useState(false);
   const [expandedIcon, setExpandedIcon] = useState("chevron-up");
   const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  // console.log(data.categoryId);
+  // console.log(createdSetId);
+  // console.log(compatibilities);
 
   const handleImageLoad = () => {
     setImagesLoaded(true);
@@ -35,6 +48,11 @@ const ComponentDetails = ({ navigation, route }) => {
     });
   };
 
+  const prepareData = () => {
+    const compatibileData = setCompatibleData(compatibilities, data.categoryId);
+    return compatibileData;
+  };
+
   const setExpandedHandler = () => {
     if (isExpanded) {
       setIsExpanded(false);
@@ -45,8 +63,31 @@ const ComponentDetails = ({ navigation, route }) => {
     }
   };
 
+  const updateHandler = () => {
+    updateSetPart(
+      data.categoryId,
+      createdSetId,
+      data,
+      createdSets,
+      updateCreatedSets
+    );
+    navigation.navigate("CreatedSets", {});
+  };
+
   const setGoBackHandler = () => {
     navigation.goBack();
+  };
+
+  const handleEdit = () => {
+    navigation.navigate("BrowseComponents", {
+      categoryId: data.categoryId,
+      data: prepareData(),
+      name: "Zamienniki",
+      isConfigurating: false,
+      isEditing: false,
+      createdSetId: createdSetId,
+      isChoosingSubstitute: true,
+    });
   };
 
   return (
@@ -121,6 +162,24 @@ const ComponentDetails = ({ navigation, route }) => {
                 buttonColor={GlobalStyles.colors.triary700}
                 buttonTextColor="white"
                 onPress={handleChoose}
+                active={true}
+              />
+            )}
+            {isEditing && (
+              <Button
+                label="Edytuj"
+                buttonColor={GlobalStyles.colors.triary700}
+                buttonTextColor="white"
+                onPress={handleEdit}
+                active={true}
+              />
+            )}
+            {isChoosingSubstitute && (
+              <Button
+                label="Zamień"
+                buttonColor={GlobalStyles.colors.triary700}
+                buttonTextColor="white"
+                onPress={updateHandler}
                 active={true}
               />
             )}

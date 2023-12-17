@@ -1,4 +1,4 @@
-import { View, FlatList, StyleSheet, ActivityIndicator } from "react-native";
+import { View, FlatList, StyleSheet } from "react-native";
 import { GlobalStyles } from "../constants/styles";
 import ComponentCategory from "../components/BrowseComponents/ComponentCategory";
 import { CATEGORIES } from "../data/categories";
@@ -10,7 +10,6 @@ const ComponentsCategories = ({ navigation }) => {
         categoryId: itemData.item.id,
         data: itemData.item.data,
         name: itemData.item.categoryName,
-        pcSetScreen: false,
       });
     };
 
