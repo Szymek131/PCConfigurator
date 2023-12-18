@@ -7,7 +7,7 @@ import { POWER_SUPPLIES } from "../data/powerSupplies";
 import { MEMORIES } from "../data/memories";
 import { MOTHERBOARDS } from "../data/motherboards";
 
-export const setCompatibleData = (compatibilities, categoryId) => {
+export const setCompatibleData = (compatibilities, categoryId, data) => {
   switch (categoryId) {
     case 1:
       return MOTHERBOARDS.filter((mb) => {
@@ -18,7 +18,8 @@ export const setCompatibleData = (compatibilities, categoryId) => {
           compatibilities.CPU.socket === mb.compatibilities.CPU.socket &&
           mb.compatibilities.GPU.includes(compatibilities.GPU.input) &&
           mb.compatibilities.RAM.slots >= compatibilities.RAM.slots &&
-          mb.compatibilities.RAM.type === compatibilities.RAM.type
+          mb.compatibilities.RAM.type === compatibilities.RAM.type &&
+          mb.name !== data.name
         );
       });
 
@@ -29,27 +30,31 @@ export const setCompatibleData = (compatibilities, categoryId) => {
             gpu.compatibilities.GPU.input
           ) &&
           gpu.compatibilities.GPU.length <= compatibilities.Case.MaxGPULength &&
-          gpu.compatibilities.PowerSupply <= compatibilities.PowerSupply.power
+          gpu.compatibilities.PowerSupply <=
+            compatibilities.PowerSupply.power &&
+          gpu.name !== data.name
         );
       });
     case 3:
       return CPUS.filter((cpu) => {
         return (
           cpu.compatibilities.CPU.socket ===
-          compatibilities.motherboard.CPUSocket
+            compatibilities.motherboard.CPUSocket && cpu.name !== data.name
         );
       });
     case 4:
       return RAMS.filter((ram) => {
         return (
           compatibilities.RAM.slots >= ram.compatibilities.RAM.number &&
-          compatibilities.RAM.type === ram.compatibilities.RAM.type
+          compatibilities.RAM.type === ram.compatibilities.RAM.type &&
+          ram.name !== data.name
         );
       });
     case 5:
       return POWER_SUPPLIES.filter((ps) => {
         return (
-          compatibilities.PowerSupply.recommended <= ps.compatibilities.power
+          compatibilities.PowerSupply.recommended <= ps.compatibilities.power &&
+          ps.name !== data.name
         );
       });
 
@@ -59,7 +64,8 @@ export const setCompatibleData = (compatibilities, categoryId) => {
     case 7:
       return COOLERS.filter((cooler) => {
         return (
-          cooler.compatibilities.height <= compatibilities.Case.MaxCoolerHeight
+          cooler.compatibilities.height <=
+            compatibilities.Case.MaxCoolerHeight && cooler.name !== data.name
         );
       });
     case 8:
@@ -69,7 +75,8 @@ export const setCompatibleData = (compatibilities, categoryId) => {
             compatibilities.motherboard.format
           ) &&
           c.compatibilities.GPULength >= compatibilities.GPU.length &&
-          c.compatibilities.CoolerHeight >= compatibilities.Cooler.height
+          c.compatibilities.CoolerHeight >= compatibilities.Cooler.height &&
+          c.name !== data.name
         );
       });
     default:

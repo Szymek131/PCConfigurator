@@ -12,6 +12,16 @@ export const updateSetPart = (
           ? {
               ...set,
               parts: [partData, ...set.parts.slice(1)],
+              compatibilities: {
+                ...set.compatibilities,
+                motherboard: {
+                  format: partData.compatibilities.motherboard.format,
+                  GPUSocket: partData.compatibilities.GPU,
+                  CPUSocket: partData.compatibilities.CPU.socket,
+                  RAMtype: partData.compatibilities.RAM.type,
+                  RAMslots: partData.compatibilities.RAM.slots,
+                },
+              },
             }
           : set
       );
@@ -27,6 +37,17 @@ export const updateSetPart = (
                 partData,
                 ...set.parts.slice(3),
               ],
+              compatibilities: {
+                ...set.compatibilities,
+                GPU: {
+                  input: partData.compatibilities.GPU.input,
+                  length: partData.compatibilities.GPU.length,
+                },
+                PowerSupply: {
+                  ...PowerSupply,
+                  recommended: partData.compatibilities.PowerSupply,
+                },
+              },
             }
           : set
       );
@@ -38,6 +59,12 @@ export const updateSetPart = (
           ? {
               ...set,
               parts: [partData, ...set.parts.slice(2)],
+              compatibilities: {
+                ...set.compatibilities,
+                CPU: {
+                  socket: partData.compatibilities.CPU.socket,
+                },
+              },
             }
           : set
       );
@@ -53,6 +80,13 @@ export const updateSetPart = (
                 partData,
                 ...set.parts.slice(4),
               ],
+              compatibilities: {
+                ...set.compatibilities,
+                RAM: {
+                  type: partData.compatibilities.RAM.type,
+                  slots: partData.compatibilities.RAM.number,
+                },
+              },
             }
           : set
       );
@@ -68,6 +102,12 @@ export const updateSetPart = (
                 partData,
                 ...set.parts.slice(7),
               ],
+              compatibilities: {
+                ...set.compatibilities,
+                PowerSupply: {
+                  power: partData.compatibilities.power,
+                },
+              },
             }
           : set
       );
@@ -98,6 +138,12 @@ export const updateSetPart = (
                 partData,
                 ...set.parts.slice(6),
               ],
+              compatibilities: {
+                ...set.compatibilities,
+                Cooler: {
+                  height: partData.compatibilities.height,
+                },
+              },
             }
           : set
       );
@@ -113,6 +159,14 @@ export const updateSetPart = (
                 partData,
                 ...set.parts.slice(8),
               ],
+              compatibilities: {
+                ...set.compatibilities,
+                Case: {
+                  MaxGPULength: partData.compatibilities.GPULength,
+                  MaxCoolerHeight: partData.compatibilities.CoolerHeight,
+                  MotherboardType: partData.compatibilities.motherboard,
+                },
+              },
             }
           : set
       );

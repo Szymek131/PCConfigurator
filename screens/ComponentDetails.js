@@ -30,7 +30,7 @@ const ComponentDetails = ({ navigation, route }) => {
   const [expandedIcon, setExpandedIcon] = useState("chevron-up");
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
-  // console.log(data.categoryId);
+  console.log(data);
   // console.log(createdSetId);
   // console.log(compatibilities);
 
@@ -49,7 +49,11 @@ const ComponentDetails = ({ navigation, route }) => {
   };
 
   const prepareData = () => {
-    const compatibileData = setCompatibleData(compatibilities, data.categoryId);
+    const compatibileData = setCompatibleData(
+      compatibilities,
+      data.categoryId,
+      data
+    );
     return compatibileData;
   };
 

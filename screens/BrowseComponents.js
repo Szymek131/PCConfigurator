@@ -4,6 +4,7 @@ import {
   StyleSheet,
   ScrollView,
   TextInput,
+  Text,
 } from "react-native";
 import { GlobalStyles } from "../constants/styles";
 import ComponentItem from "../components/BrowseComponents/ComponentItem";
@@ -18,6 +19,7 @@ const BrowseComponents = ({ navigation, route }) => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredData, setFilteredData] = useState(data);
+  console.log(data);
 
   console.log(createdSetId);
   const handleSearch = useCallback(
@@ -68,6 +70,9 @@ const BrowseComponents = ({ navigation, route }) => {
               value={searchQuery}
             />
           </View>
+          {data.length === 0 ? (
+            <Text style={styles.noPartsHeader}>Brak pasujących części</Text>
+          ) : null}
         </View>
         <View style={styles.listContainer}>
           <FlatList
@@ -120,5 +125,10 @@ const styles = StyleSheet.create({
   searchOuterContainer: {
     justifyContent: "center",
     alignItems: "center",
+    marginHorizontal: 5,
+  },
+  noPartsHeader: {
+    textAlign: "center",
+    fontSize: 24,
   },
 });
