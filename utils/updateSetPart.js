@@ -44,7 +44,7 @@ export const updateSetPart = (
                   length: partData.compatibilities.GPU.length,
                 },
                 PowerSupply: {
-                  ...PowerSupply,
+                  ...set.compatibilities.PowerSupply,
                   recommended: partData.compatibilities.PowerSupply,
                 },
               },
@@ -58,7 +58,11 @@ export const updateSetPart = (
         set.id === setId
           ? {
               ...set,
-              parts: [partData, ...set.parts.slice(2)],
+              parts: [
+                ...set.parts.slice(0, 1),
+                partData,
+                ...set.parts.slice(2),
+              ],
               compatibilities: {
                 ...set.compatibilities,
                 CPU: {

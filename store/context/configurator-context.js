@@ -65,6 +65,7 @@ const ConfiguratorContextProvider = ({ children }) => {
     },
     PowerSupply: {
       recommended: 0,
+      power: 0,
     },
     Case: {
       MaxGPULength: 0,
