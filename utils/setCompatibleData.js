@@ -7,7 +7,7 @@ import { POWER_SUPPLIES } from "../data/powerSupplies";
 import { MEMORIES } from "../data/memories";
 import { MOTHERBOARDS } from "../data/motherboards";
 
-export const setCompatibleData = (compatibilities, categoryId, data) => {
+export const setCompatibileData = (compatibilities, categoryId, data) => {
   switch (categoryId) {
     case 1:
       return MOTHERBOARDS.filter((mb) => {
@@ -22,7 +22,6 @@ export const setCompatibleData = (compatibilities, categoryId, data) => {
           mb.name !== data.name
         );
       });
-
     case 2:
       return GPUS.filter((gpu) => {
         return (
@@ -57,10 +56,8 @@ export const setCompatibleData = (compatibilities, categoryId, data) => {
           ps.name !== data.name
         );
       });
-
     case 6:
       return MEMORIES;
-
     case 7:
       return COOLERS.filter((cooler) => {
         return (

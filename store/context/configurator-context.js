@@ -20,7 +20,6 @@ export const configuratorContext = createContext({
       type: "",
       slots: 0,
     },
-    Memory: {},
     Cooler: {
       height: 0,
     },
@@ -59,7 +58,6 @@ const ConfiguratorContextProvider = ({ children }) => {
       type: "",
       slots: 0,
     },
-    Memory: {},
     Cooler: {
       height: 0,
     },

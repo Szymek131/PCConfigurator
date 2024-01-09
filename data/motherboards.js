@@ -13,7 +13,6 @@ export const MOTHERBOARDS = [
         type: "DIMM",
         slots: 4,
       },
-      Memory: [],
       motherboard: {
         format: "m-ATX",
       },

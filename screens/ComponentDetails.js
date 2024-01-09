@@ -30,10 +30,6 @@ const ComponentDetails = ({ navigation, route }) => {
   const [expandedIcon, setExpandedIcon] = useState("chevron-up");
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
-  console.log(data);
-  // console.log(createdSetId);
-  // console.log(compatibilities);
-
   const handleImageLoad = () => {
     setImagesLoaded(true);
   };
