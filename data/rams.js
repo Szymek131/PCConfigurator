@@ -2,7 +2,7 @@ export const RAMS = [
   {
     id: 1,
     name: "Pamięć RAM KINGSTON Fury Beast 32GB 3200MHz",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Rams/ram_1.jpg"),
+    imgSource: require("../assets/images/Rams/ram_1.jpg"),
     categoryId: 4,
     compatibilities: {
       RAM: {
@@ -25,7 +25,7 @@ export const RAMS = [
   {
     id: 2,
     name: "Pamięć RAM CORSAIR Vengeance 32GB 5600MHz",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Rams/ram_2.jpg"),
+    imgSource: require("../assets/images/Rams/ram_2.jpg"),
     categoryId: 4,
     compatibilities: {
       RAM: {
@@ -48,7 +48,7 @@ export const RAMS = [
   {
     id: 3,
     name: "Pamięć RAM KINGSTON Fury Renegade DDR5 RGB 64GB 6000MHz",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Rams/ram_3.jpg"),
+    imgSource: require("../assets/images/Rams/ram_3.jpg"),
     categoryId: 4,
     compatibilities: {
       RAM: {
@@ -71,7 +71,7 @@ export const RAMS = [
   {
     id: 4,
     name: "Pamieć RAM G.SKILL Ripjaws V 32GB 3200MHz",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Rams/ram_4.jpg"),
+    imgSource: require("../assets/images/Rams/ram_4.jpg"),
     categoryId: 4,
     compatibilities: {
       RAM: {

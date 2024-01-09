@@ -15,7 +15,7 @@ const GPUStep = ({ navigation, route }) => {
 
   console.log("current compatibilities GPU Step", compatibilities);
   const [image, setImage] = useState(
-    require("D:/PracaInz/PCConfigurator/assets/images/categories/KartaGraficzna.png")
+    require("../../assets/images/categories/KartaGraficzna.png")
   );
   const [componentName, setComponentName] = useState("Płyta główna");
   const [isNextStepAvailable, setIsNextStepAvailable] = useState(false);

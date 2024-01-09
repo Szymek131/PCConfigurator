@@ -11,7 +11,7 @@ import { GlobalStyles } from "../constants/styles";
 import { useState } from "react";
 import IconButton from "../components/UI/IconButton";
 import Button from "../components/UI/Button";
-import { setCompatibleData } from "../utils/setCompatibleData";
+import { setCompatibileData } from "../utils/setCompatibileData";
 import { configuratorContext } from "../store/context/configurator-context";
 import { useContext } from "react";
 import { updateSetPart } from "../utils/updateSetPart";
@@ -45,7 +45,7 @@ const ComponentDetails = ({ navigation, route }) => {
   };
 
   const prepareData = () => {
-    const compatibileData = setCompatibleData(
+    const compatibileData = setCompatibileData(
       compatibilities,
       data.categoryId,
       data

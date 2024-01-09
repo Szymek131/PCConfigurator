@@ -15,7 +15,7 @@ const MotherboardStep = ({ navigation, route }) => {
 
   console.log(compatibilities);
   const [image, setImage] = useState(
-    require("D:/PracaInz/PCConfigurator/assets/images/categories/PlytaGlowna.png")
+    require("../../assets/images/categories/PlytaGlowna.png")
   );
   const [componentName, setComponentName] = useState("Płyta główna");
   const [isNextStepAvailable, setIsNextStepAvailable] = useState(false);

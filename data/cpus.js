@@ -2,7 +2,7 @@ export const CPUS = [
   {
     id: 1,
     name: "Intel® Core™ i9-13900K",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/CPUs/cpu_1.jpg"),
+    imgSource: require("../assets/images/CPUs/cpu_1.jpg"),
     categoryId: 3,
     compatibilities: {
       CPU: {
@@ -31,7 +31,7 @@ export const CPUS = [
   {
     id: 2,
     name: "AMD Ryzen 7 5700X",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/CPUs/cpu_2.jpg"),
+    imgSource: require("../assets/images/CPUs/cpu_2.jpg"),
     categoryId: 3,
     compatibilities: {
       CPU: {
@@ -62,7 +62,7 @@ export const CPUS = [
   {
     id: 3,
     name: "Intel Core i5-13600KF",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/CPUs/cpu_3.jpg"),
+    imgSource: require("../assets/images/CPUs/cpu_3.jpg"),
     categoryId: 3,
     compatibilities: {
       CPU: {
@@ -90,7 +90,7 @@ export const CPUS = [
   {
     id: 4,
     name: "AMD Ryzen 9 7950X",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/CPUs/cpu_4.jpg"),
+    imgSource: require("../assets/images/CPUs/cpu_4.jpg"),
     categoryId: 3,
     compatibilities: {
       CPU: {

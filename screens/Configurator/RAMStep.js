@@ -16,7 +16,7 @@ const RAMStep = ({ navigation, route }) => {
   console.log("current compatibilities GPU Step", compatibilities);
 
   const [image, setImage] = useState(
-    require("D:/PracaInz/PCConfigurator/assets/images/categories/Ram.png")
+    require("../../assets/images/categories/Ram.png")
   );
   const [componentName, setComponentName] = useState("Płyta główna");
   const [isNextStepAvailable, setIsNextStepAvailable] = useState(false);

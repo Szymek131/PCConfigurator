@@ -2,7 +2,7 @@ export const MEMORIES = [
   {
     id: 1,
     name: "Samsung 4TB M.2 PCIe Gen4 NVMe 990 Pro",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Memories/memory_1.jpg"),
+    imgSource: require("../assets/images/Memories/memory_1.jpg"),
     categoryId: 6,
     compatibilities: {
       memory: "PCIe NVMe 4.0 x4",
@@ -18,7 +18,7 @@ export const MEMORIES = [
   {
     id: 2,
     name: "Samsung 1TB M.2 PCIe NVMe 970 EVO Plus",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Memories/memory_2.jpg"),
+    imgSource: require("../assets/images/Memories/memory_2.jpg"),
     categoryId: 6,
     compatibilities: {
       memory: "PCIe NVMe 3.0 x4",
@@ -34,7 +34,7 @@ export const MEMORIES = [
   {
     id: 3,
     name: "Pamięć RAM KINGSTON Fury Beast 32GB 6000MHz",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Memories/memory_3.jpg"),
+    imgSource: require("../assets/images/Memories/memory_3.jpg"),
     categoryId: 6,
     compatibilities: {
       memory: "PCIe NVMe 3.0 x4",

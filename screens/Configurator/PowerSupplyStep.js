@@ -14,7 +14,7 @@ const PowerSupplyStep = ({ navigation, route }) => {
     useContext(configuratorContext);
 
   const [image, setImage] = useState(
-    require("D:/PracaInz/PCConfigurator/assets/images/categories/Zasilacz.png")
+    require("../../assets/images/categories/Zasilacz.png")
   );
   const [componentName, setComponentName] = useState("Płyta główna");
   const [isNextStepAvailable, setIsNextStepAvailable] = useState(false);

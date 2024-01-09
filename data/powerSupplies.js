@@ -2,7 +2,7 @@ export const POWER_SUPPLIES = [
   {
     id: 1,
     name: "Zasilacz BE QUIET! Pure Power 12 M 1000W 80",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/PowerSupplies/powerSupply_1.jpg"),
+    imgSource: require("../assets/images/PowerSupplies/powerSupply_1.jpg"),
     categoryId: 5,
     compatibilities: {
       power: 1000,
@@ -22,7 +22,7 @@ export const POWER_SUPPLIES = [
   {
     id: 2,
     name: "Zasilacz MSI MPG A850G 850W 80",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/PowerSupplies/powerSupply_2.jpg"),
+    imgSource: require("../assets/images/PowerSupplies/powerSupply_2.jpg"),
     categoryId: 5,
     compatibilities: {
       power: 850,
@@ -42,7 +42,7 @@ export const POWER_SUPPLIES = [
   {
     id: 3,
     name: "Zasilacz CORSAIR RM850X 850W 80",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/PowerSupplies/powerSupply_3.jpg"),
+    imgSource: require("../assets/images/PowerSupplies/powerSupply_3.jpg"),
     compatibilities: {
       power: 850,
     },
@@ -59,7 +59,7 @@ export const POWER_SUPPLIES = [
   {
     id: 4,
     name: "Zasilacz BE QUIET! Pure Power 12 M 550W 80",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/PowerSupplies/powerSupply_4.jpg"),
+    imgSource: require("../assets/images/PowerSupplies/powerSupply_4.jpg"),
     categoryId: 5,
     compatibilities: {
       power: 550,

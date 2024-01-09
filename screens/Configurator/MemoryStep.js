@@ -13,7 +13,7 @@ const MemoryStep = ({ navigation, route }) => {
     useContext(configuratorContext);
 
   const [image, setImage] = useState(
-    require("D:/PracaInz/PCConfigurator/assets/images/categories/Pamiec.png")
+    require("../../assets/images/categories/Pamiec.png")
   );
   const [componentName, setComponentName] = useState("Płyta główna");
   const [isNextStepAvailable, setIsNextStepAvailable] = useState(false);

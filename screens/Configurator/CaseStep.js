@@ -14,7 +14,7 @@ const CaseStep = ({ navigation, route }) => {
     useContext(configuratorContext);
 
   const [image, setImage] = useState(
-    require("D:/PracaInz/PCConfigurator/assets/images/categories/Obudowa.png")
+    require("../../assets/images/categories/Obudowa.png")
   );
   const [componentName, setComponentName] = useState("Płyta główna");
   const [isNextStepAvailable, setIsNextStepAvailable] = useState(false);

@@ -2,7 +2,7 @@ export const COOLERS = [
   {
     id: 1,
     name: "Chłodzenie CPU BE QUIET! Dark Rock Pro 4 BK022",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Coolers/cooler_1.jpg"),
+    imgSource: require("../assets/images/Coolers/cooler_1.jpg"),
     categoryId: 7,
     compatibilities: {
       CPU: [
@@ -36,7 +36,7 @@ export const COOLERS = [
   {
     id: 2,
     name: "Silver Monkey X FROSTY 2x120 mm",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Coolers/cooler_2.jpg"),
+    imgSource: require("../assets/images/Coolers/cooler_2.jpg"),
     categoryId: 7,
     compatibilities: {
       CPU: [
@@ -69,7 +69,7 @@ export const COOLERS = [
   {
     id: 3,
     name: "be quiet! Silent Loop 2 280mm 2x140mm",
-    imgSource: require("D:/PracaInz/PCConfigurator/assets/images/Coolers/cooler_3.jpg"),
+    imgSource: require("../assets/images/Coolers/cooler_3.jpg"),
     categoryId: 7,
     compatibilities: {
       CPU: [

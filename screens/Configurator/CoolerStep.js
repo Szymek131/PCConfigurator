@@ -14,7 +14,7 @@ const CoolerStep = ({ navigation, route }) => {
     useContext(configuratorContext);
 
   const [image, setImage] = useState(
-    require("D:/PracaInz/PCConfigurator/assets/images/categories/Chlodzenie.png")
+    require("../../assets/images/categories/Chlodzenie.png")
   );
   const [componentName, setComponentName] = useState("Płyta główna");
   const [isNextStepAvailable, setIsNextStepAvailable] = useState(false);

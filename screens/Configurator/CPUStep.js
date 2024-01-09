@@ -15,7 +15,7 @@ const CPUStep = ({ navigation, route }) => {
 
   console.log("current compatibilities", compatibilities);
   const [image, setImage] = useState(
-    require("D:/PracaInz/PCConfigurator/assets/images/categories/Procesor.png")
+    require("../../assets/images/categories/Procesor.png")
   );
   const [componentName, setComponentName] = useState("Płyta główna");
   const [isNextStepAvailable, setIsNextStepAvailable] = useState(false);
